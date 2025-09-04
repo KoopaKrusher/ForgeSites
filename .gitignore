@@ -8,3 +8,9 @@ coverage
 .env
 prisma/dev.db
 prisma/*.db-journal
+node_modules/
+.next/
+.env
+.env.local
+dist/
+coverage/
