@@ -30,17 +30,18 @@ export default function Process() {
     }
   ]
   return (
-    <section aria-labelledby="how-it-works" className="py-16">
+    <section aria-labelledby="how-it-works" className="py-16 section-fade">
       <div className="max-w-[1100px] mx-auto px-6">
         <h2 id="how-it-works" className="text-2xl md:text-3xl font-extrabold text-steel mb-6">
           How it works
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
           {steps.map((s) => (
-            <article key={s.title} className="rounded-2xl bg-white border border-black/10 p-5 shadow-sm">
+            <article key={s.title} className="group relative overflow-hidden rounded-2xl bg-white border border-steel/10 p-5 shadow-md transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-within:shadow-lg">
               <div className="mb-3">{s.icon}</div>
               <h3 className="font-bold text-steel mb-1">{s.title}</h3>
               <p className="text-steel/80">{s.body}</p>
+              <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] rounded-b-2xl bg-molten/0 transition-colors duration-200 group-hover:bg-molten/30 group-focus-within:bg-molten/40" />
             </article>
           ))}
         </div>
@@ -48,4 +49,3 @@ export default function Process() {
     </section>
   )
 }
-

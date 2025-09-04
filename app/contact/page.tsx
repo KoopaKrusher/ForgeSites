@@ -36,7 +36,7 @@ export default function ContactPage() {
   }
 
   return (
-    <section>
+    <section className="section-fade">
       <h1 className="text-3xl font-semibold mb-6">Contact</h1>
       {sent ? (
         <p className="rounded-md bg-green-50 border border-green-200 p-4 text-green-800">

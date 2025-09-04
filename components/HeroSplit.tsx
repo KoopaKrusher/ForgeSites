@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import BrowserMockup from './BrowserMockup'
+import ProjectMock from './ProjectMock'
 
 export default function HeroSplit() {
   return (
-    <section className="relative">
+    <section className="relative section-fade-b">
       <div className="w-full h-[3px] md:h-[4px] bg-molten" aria-hidden="true" />
       <div className="max-w-[1100px] mx-auto px-6 py-16 md:py-24">
         <div className="grid gap-10 md:gap-12">
@@ -31,8 +31,8 @@ export default function HeroSplit() {
               </Link>
             </div>
           </div>
-          <div className="mx-auto w-full md:max-w-[540px]">
-            <BrowserMockup />
+          <div className="mx-auto w-full">
+            <ProjectMock />
           </div>
         </div>
       </div>

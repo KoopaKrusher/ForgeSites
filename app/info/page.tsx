@@ -1,6 +1,6 @@
 export default function InfoPage() {
   return (
-    <section className="prose max-w-none">
+    <section className="prose max-w-none section-fade">
       <h1>What We Do</h1>
       <p>
         ForgeSites designs and builds websites for small businesses—from budget-friendly
@@ -23,4 +23,3 @@ export default function InfoPage() {
     </section>
   )
 }
-

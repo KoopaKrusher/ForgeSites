@@ -13,9 +13,7 @@ type NavItem = {
 const NAV: NavItem[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Info', href: '/info' },
-  { name: 'Packages', href: '/packages' },
-  { name: 'Contact', href: '/contact' }
+  { name: 'Packages', href: '/packages' }
 ]
 
 function NavLink({ item, active }: { item: NavItem; active: boolean }) {

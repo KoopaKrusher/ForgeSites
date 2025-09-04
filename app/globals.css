@@ -26,3 +26,31 @@
   background-repeat: repeat;
   background-size: 36px 36px;
 }
+
+/* Subtle edge vignette for depth and focus */
+body.with-vignette::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  /* Transparent center → stronger dark edges */
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 48%, rgba(0,0,0,0.22) 100%);
+  z-index: 30;
+}
+
+/* Spotlight behind main content to gently brighten focus area */
+.with-spotlight {
+  position: relative;
+  isolation: isolate; /* ensure pseudo-element sits behind content */
+}
+.with-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* brighter radial moved further down from top */
+  background: radial-gradient(800px circle at center 320px, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.0) 70%);
+  z-index: -1; /* sit behind main content within isolated context */
+}
+
+/* Section fades disabled per design update */

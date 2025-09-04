@@ -46,7 +46,7 @@ export default function RequestPage() {
   }
 
   return (
-    <section>
+    <section className="section-fade">
       <h1 className="text-3xl font-extrabold mb-6">Request a Quote</h1>
       {sent && (
         <p className="mb-4 rounded-md bg-green-50 border border-green-200 p-3 text-green-800">Thanks! We’ll reach out soon.</p>
