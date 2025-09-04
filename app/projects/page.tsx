@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         {(projects as Project[]).map((p) => (
           <article
             key={p.title}
-            className="group relative overflow-hidden rounded-2xl border border-steel/10 p-5 bg-white shadow-lg transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-xl"
+            className="group relative overflow-hidden rounded-2xl border border-molten/30 p-5 bg-white shadow-lg transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-xl"
           >
             <h2 className="text-xl font-semibold mb-2">{p.title}</h2>
             <p className="text-steel/80 mb-4">{p.description}</p>

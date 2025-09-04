@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 type FormState = {
   name: string
@@ -23,6 +24,9 @@ export default function RequestPage() {
   })
   const [sent, setSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
+  const hasDb = process.env.NEXT_PUBLIC_HAS_DATABASE === 'true'
+  const isProd = process.env.NODE_ENV === 'production'
 
   function onChange<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((f) => ({ ...f, [key]: value }))
@@ -32,6 +36,12 @@ export default function RequestPage() {
     e.preventDefault()
     setError(null)
     try {
+      // In production without a DATABASE_URL, short-circuit with a success toast and redirect.
+      if (isProd && !hasDb) {
+        alert('Success! We’ll email you shortly')
+        router.push('/contact?note=We%E2%80%99ll%20email%20you%20shortly')
+        return
+      }
       const res = await fetch('/api/requests', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

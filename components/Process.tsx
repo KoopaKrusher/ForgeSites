@@ -37,7 +37,7 @@ export default function Process() {
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
           {steps.map((s) => (
-            <article key={s.title} className="group relative overflow-hidden rounded-2xl bg-white border border-steel/10 p-5 shadow-md transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-within:shadow-lg">
+            <article key={s.title} className="group relative overflow-hidden rounded-2xl bg-white border border-molten/30 p-5 shadow-md transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-within:shadow-lg">
               <div className="mb-3">{s.icon}</div>
               <h3 className="font-bold text-steel mb-1">{s.title}</h3>
               <p className="text-steel/80">{s.body}</p>

@@ -1,6 +1,6 @@
 function Card({ title, price, children }: { title: string; price: string; children: React.ReactNode }) {
   return (
-    <article className="group relative overflow-hidden rounded-xl border border-steel/10 bg-white p-5 shadow-md transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+    <article className="group relative overflow-hidden rounded-xl border border-molten/30 bg-white p-5 shadow-md transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
       <h3 className="text-xl font-extrabold mb-1">{title}</h3>
       <p className="text-gold font-semibold mb-3">{price}</p>
       <div className="text-steel/80">{children}</div>

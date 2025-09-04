@@ -2,12 +2,16 @@
   "name": "braden-site",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
+    "db:migrate": "prisma migrate deploy",
     "db:push": "prisma db push",
     "db:studio": "prisma studio"
   },
@@ -27,6 +31,7 @@
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5",
+    "eslint-config-prettier": "^9.1.2",
     "jsdom": "^24.1.0",
     "postcss": "^8.4.41",
     "prettier": "^3.3.2",

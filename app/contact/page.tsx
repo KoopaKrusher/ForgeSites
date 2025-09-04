@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 type FormState = {
   name: string
@@ -11,6 +12,8 @@ export default function ContactPage() {
   const [form, setForm] = useState<FormState>({ name: '', email: '', message: '' })
   const [errors, setErrors] = useState<Partial<FormState>>({})
   const [sent, setSent] = useState(false)
+  const searchParams = useSearchParams()
+  const note = searchParams.get('note')
 
   function validate(values: FormState) {
     const next: Partial<FormState> = {}
@@ -38,6 +41,11 @@ export default function ContactPage() {
   return (
     <section className="section-fade">
       <h1 className="text-3xl font-semibold mb-6">Contact</h1>
+      {note && (
+        <p className="mb-4 rounded-md bg-green-50 border border-green-200 p-4 text-green-800">
+          {note}
+        </p>
+      )}
       {sent ? (
         <p className="rounded-md bg-green-50 border border-green-200 p-4 text-green-800">
           Thanks! Your message passed validation (no backend wired).

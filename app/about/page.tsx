@@ -37,7 +37,7 @@ export default function AboutPage() {
           <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             <article
               tabIndex={0}
-              className="group relative rounded-2xl border border-steel/10 bg-white p-6 shadow-md overflow-hidden transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group relative rounded-2xl border border-molten/30 bg-white p-6 shadow-md overflow-hidden transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <h3 className="text-steel font-bold mb-2">Hands-On Collaboration</h3>
               <p className="text-steel/80">
@@ -48,7 +48,7 @@ export default function AboutPage() {
             </article>
             <article
               tabIndex={0}
-              className="group relative rounded-2xl border border-steel/10 bg-white p-6 shadow-md overflow-hidden transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group relative rounded-2xl border border-molten/30 bg-white p-6 shadow-md overflow-hidden transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <h3 className="text-steel font-bold mb-2">Custom, Flexible Builds</h3>
               <p className="text-steel/80">
@@ -59,7 +59,7 @@ export default function AboutPage() {
             </article>
             <article
               tabIndex={0}
-              className="group relative rounded-2xl border border-steel/10 bg-white p-6 shadow-md overflow-hidden transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group relative rounded-2xl border border-molten/30 bg-white p-6 shadow-md overflow-hidden transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-lg focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <h3 className="text-steel font-bold mb-2">No Headaches</h3>
               <p className="text-steel/80">

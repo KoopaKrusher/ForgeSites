@@ -24,8 +24,7 @@ export default function HeroSplit() {
               </Link>
               <Link
                 href="/packages"
-                className="inline-block rounded-md border border-steel/20 text-steel px-6 py-3 font-semibold transition duration-200 motion-reduce:transition-none hover:bg-bone/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/40"
-                aria-label="View Packages"
+                className="inline-flex items-center rounded-xl border border-steel/40 text-steel px-6 py-3 font-semibold transition duration-200 motion-reduce:transition-none hover:bg-steel/10 active:bg-steel/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               >
                 View Packages
               </Link>
