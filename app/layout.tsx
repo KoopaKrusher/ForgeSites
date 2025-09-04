@@ -1,18 +1,33 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: "Braden Baney",
-  description: "Personal site for Braden"
+  metadataBase: new URL('https://forgesites.example'),
+  title: {
+    default: 'ForgeSites',
+    template: '%s · ForgeSites'
+  },
+  description: 'Forging websites for small businesses.',
+  openGraph: {
+    title: 'ForgeSites',
+    description: 'Forging websites for small businesses.',
+    url: 'https://forgesites.example',
+    siteName: 'ForgeSites',
+    locale: 'en_US',
+    type: 'website'
+  },
+  icons: { icon: '/favicon.ico' }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-white text-gray-900 antialiased">
+      <body className="min-h-screen antialiased">
         <Navbar />
-        <main className="container mx-auto px-4 py-8">{children}</main>
+        <main className="container mx-auto px-4 py-10">{children}</main>
+        <Footer />
       </body>
     </html>
   )

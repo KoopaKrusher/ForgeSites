@@ -15,12 +15,12 @@ export default function ProjectsPage() {
         {(projects as Project[]).map((p) => (
           <article
             key={p.title}
-            className="rounded-lg border border-gray-200 p-5 shadow-sm hover:shadow transition"
+            className="rounded-2xl border border-black/10 p-5 bg-white shadow-sm transition duration-200 motion-reduce:transition-none hover:shadow-lg"
           >
             <h2 className="text-xl font-semibold mb-2">{p.title}</h2>
-            <p className="text-gray-600 mb-4">{p.description}</p>
+            <p className="text-steel/80 mb-4">{p.description}</p>
             <Link
-              className="text-blue-600 hover:text-blue-700 font-medium"
+              className="text-molten hover:text-gold font-semibold transition duration-200 motion-reduce:transition-none"
               href={p.link}
               target="_blank"
               rel="noreferrer"

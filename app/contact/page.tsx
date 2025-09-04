@@ -52,7 +52,7 @@ export default function ContactPage() {
               id="name"
               value={form.name}
               onChange={(e) => onChange('name', e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-black/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-molten/60"
               placeholder="Your name"
               required
             />
@@ -67,7 +67,7 @@ export default function ContactPage() {
               type="email"
               value={form.email}
               onChange={(e) => onChange('email', e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-black/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-molten/60"
               placeholder="you@example.com"
               required
             />
@@ -81,7 +81,7 @@ export default function ContactPage() {
               id="message"
               value={form.message}
               onChange={(e) => onChange('message', e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-black/20 px-3 py-2 h-32 focus:outline-none focus:ring-2 focus:ring-molten/60"
               placeholder="How can I help?"
               required
             />
@@ -89,7 +89,7 @@ export default function ContactPage() {
           </div>
           <button
             type="submit"
-            className="rounded-md bg-blue-600 px-5 py-2.5 text-white font-medium hover:bg-blue-700 transition"
+            className="rounded-md bg-molten px-5 py-2.5 text-white font-semibold transition duration-200 motion-reduce:transition-none hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-molten/70"
           >
             Send
           </button>
