@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Tiny Tasker",
+    "description": "A minimal task list app focused on speed and keyboard shortcuts.",
+    "link": "https://example.com/tiny-tasker"
+  },
+  {
+    "title": "NoteSpark",
+    "description": "A simple notes app with fast search and tags.",
+    "link": "https://example.com/notespark"
+  },
+  {
+    "title": "Image Shrinkr",
+    "description": "Batch compress images in the browser with great defaults.",
+    "link": "https://example.com/image-shrinkr"
+  }
+]
