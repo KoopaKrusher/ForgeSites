@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+
+export const dynamic = 'force-dynamic'
 
 function validate(body: any) {
   const errors: string[] = []
@@ -15,6 +16,12 @@ export async function POST(req: Request) {
     if (errors.length) {
       return NextResponse.json({ ok: false, errors }, { status: 400 })
     }
+    // If no DB configured, no-op and 200.
+    if (!process.env.DATABASE_URL) {
+      return NextResponse.json({ ok: true })
+    }
+    // Lazy import prisma only when DB is present
+    const { prisma } = await import('@/lib/prisma')
     const created = await prisma.request.create({
       data: {
         name: data.name,
@@ -31,4 +38,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'server_error' }, { status: 500 })
   }
 }
-
