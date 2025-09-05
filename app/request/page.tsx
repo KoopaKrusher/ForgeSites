@@ -22,11 +22,8 @@ export default function RequestPage() {
     timeline: '',
     notes: ''
   })
-  const [sent, setSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
-  const hasDb = process.env.NEXT_PUBLIC_HAS_DATABASE === 'true'
-  const isProd = process.env.NODE_ENV === 'production'
 
   function onChange<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((f) => ({ ...f, [key]: value }))
@@ -36,20 +33,13 @@ export default function RequestPage() {
     e.preventDefault()
     setError(null)
     try {
-      // In production without a DATABASE_URL, short-circuit with a success toast and redirect.
-      if (isProd && !hasDb) {
-        alert('Success! We’ll email you shortly')
-        router.push('/contact?note=We%E2%80%99ll%20email%20you%20shortly')
-        return
-      }
-      const res = await fetch('/api/requests', {
+      const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
       })
       if (!res.ok) throw new Error('Failed to submit')
-      setSent(true)
-      setForm({ name: '', email: '', business_name: '', industry: '', budget: '', timeline: '', notes: '' })
+      router.push('/thank-you')
     } catch (err) {
       setError('Something went wrong. Please try again soon.')
     }
@@ -58,9 +48,6 @@ export default function RequestPage() {
   return (
     <section className="section-fade">
       <h1 className="text-3xl font-extrabold mb-6">Request a Quote</h1>
-      {sent && (
-        <p className="mb-4 rounded-md bg-green-50 border border-green-200 p-3 text-green-800">Thanks! We’ll reach out soon.</p>
-      )}
       {error && <p className="mb-4 text-sm text-red-600">{error}</p>}
       <form onSubmit={onSubmit} className="grid gap-4 max-w-2xl">
         <div>

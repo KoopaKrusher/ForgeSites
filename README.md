@@ -17,6 +17,20 @@ Checks:
 - Lint: `npm run lint`
 - Tests: `npm test`
 
+## Email sending (quote requests)
+
+The Request a Quote form posts to `/api/quote` which sends an email via SMTP using `nodemailer`.
+
+- Required env vars:
+  - `SMTP_HOST`
+  - `SMTP_PORT`
+  - `SMTP_USER`
+  - `SMTP_PASS`
+  - `SMTP_FROM`
+  - Optional: `SMTP_TO` (defaults to `braden@forge-sites.com`)
+
+If these are not set in local development, the API logs submissions to the console and returns success.
+
 ## How to edit content
 
 - Home: `app/page.tsx` (headline and CTA)
@@ -40,8 +54,8 @@ Checks:
 Steps
 - Push this repo to GitHub (or your VCS of choice).
 - In Vercel, Import Project, select this repo.
-- Environment Variables (optional):
-  - `DATABASE_URL`: Required only if you want to persist Request form submissions via Prisma. If omitted in production, the Request form will show a success toast and redirect to `/contact` with the note “We’ll email you shortly” (no DB write).
+- Environment Variables:
+  - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` (and optional `SMTP_TO`) to enable email delivery for `/api/quote`.
   - `ADMIN_PASSWORD`: If you use any admin-only routes later, set a strong value.
 - Click Deploy. Vercel picks up `vercel.json` for security headers and clean URLs.
 
