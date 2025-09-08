@@ -1,89 +1,47 @@
 'use client'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 
-type FormState = {
-  name: string
-  email: string
-  business_name: string
-  industry: string
-  budget: string
-  timeline: string
-  notes: string
-}
+import InteractiveContactForm from '@/components/InteractiveContactForm'
 
-export default function RequestPage() {
-  const [form, setForm] = useState<FormState>({
-    name: '',
-    email: '',
-    business_name: '',
-    industry: '',
-    budget: '',
-    timeline: '',
-    notes: ''
-  })
-  const [error, setError] = useState<string | null>(null)
-  const router = useRouter()
-
-  function onChange<K extends keyof FormState>(key: K, value: FormState[K]) {
-    setForm((f) => ({ ...f, [key]: value }))
-  }
-
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setError(null)
-    try {
-      const res = await fetch('/api/quote', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      })
-      if (!res.ok) throw new Error('Failed to submit')
-      router.push('/thank-you')
-    } catch (err) {
-      setError('Something went wrong. Please try again soon.')
-    }
-  }
-
+export default function RequestQuotePage() {
   return (
-    <section className="section-fade">
-      <h1 className="text-3xl font-extrabold mb-6">Request a Quote</h1>
-      {error && <p className="mb-4 text-sm text-red-600">{error}</p>}
-      <form onSubmit={onSubmit} className="grid gap-4 max-w-2xl">
-        <div>
-          <label className="block text-sm font-medium mb-1" htmlFor="name">Name</label>
-          <input id="name" className="w-full rounded-md border border-black/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-molten/60" value={form.name} onChange={(e) => onChange('name', e.target.value)} required />
+    <div className="py-16 relative z-10">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-steel mb-4">
+            Let&apos;s Build Something Amazing Together
+          </h1>
+          <p className="text-xl text-steel/80 max-w-2xl mx-auto">
+            Tell us about your project and we&apos;ll provide you with a detailed quote and timeline within 24 hours.
+          </p>
         </div>
-        <div>
-          <label className="block text-sm font-medium mb-1" htmlFor="email">Email</label>
-          <input id="email" type="email" className="w-full rounded-md border border-black/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-molten/60" value={form.email} onChange={(e) => onChange('email', e.target.value)} required />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1" htmlFor="business_name">Business Name</label>
-          <input id="business_name" className="w-full rounded-md border border-black/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-molten/60" value={form.business_name} onChange={(e) => onChange('business_name', e.target.value)} />
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="industry">Industry</label>
-            <input id="industry" className="w-full rounded-md border border-black/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-molten/60" value={form.industry} onChange={(e) => onChange('industry', e.target.value)} />
+
+        <InteractiveContactForm />
+
+        {/* Additional info */}
+        <div className="mt-16 grid md:grid-cols-3 gap-8">
+          <div className="text-center">
+            <div className="w-12 h-12 bg-molten/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">⚡</span>
+            </div>
+            <h3 className="font-semibold text-steel mb-2">Fast Response</h3>
+            <p className="text-steel/70 text-sm">We respond to all project inquiries within 24 hours</p>
           </div>
-          <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="budget">Budget</label>
-            <input id="budget" className="w-full rounded-md border border-black/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-molten/60" value={form.budget} onChange={(e) => onChange('budget', e.target.value)} placeholder="$500–$2k, etc." />
+          <div className="text-center">
+            <div className="w-12 h-12 bg-molten/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">💎</span>
+            </div>
+            <h3 className="font-semibold text-steel mb-2">Transparent Pricing</h3>
+            <p className="text-steel/70 text-sm">No hidden fees or surprise costs - everything upfront</p>
+          </div>
+          <div className="text-center">
+            <div className="w-12 h-12 bg-molten/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">🚀</span>
+            </div>
+            <h3 className="font-semibold text-steel mb-2">Modern Technology</h3>
+            <p className="text-steel/70 text-sm">Built with the latest web technologies for performance</p>
           </div>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="timeline">Timeline</label>
-            <input id="timeline" className="w-full rounded-md border border-black/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-molten/60" value={form.timeline} onChange={(e) => onChange('timeline', e.target.value)} placeholder="e.g., 2–4 weeks" />
-          </div>
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1" htmlFor="notes">Notes</label>
-          <textarea id="notes" className="w-full rounded-md border border-black/20 px-3 py-2 h-32 focus:outline-none focus:ring-2 focus:ring-molten/60" value={form.notes} onChange={(e) => onChange('notes', e.target.value)} placeholder="Tell us about your business and goals" />
-        </div>
-        <button type="submit" className="rounded-md bg-molten px-5 py-2.5 text-white font-semibold transition duration-200 motion-reduce:transition-none hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-molten/70">Send Request</button>
-      </form>
-    </section>
+      </div>
+    </div>
   )
 }
