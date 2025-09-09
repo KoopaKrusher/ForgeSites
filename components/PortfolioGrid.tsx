@@ -106,7 +106,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
       viewport={{ once: true }}
       whileHover={{ 
         y: -8,
@@ -130,6 +130,8 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           src={project.image} 
           alt={project.title}
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
           animate={{ 
             scale: isHovered ? 1.1 : 1,
             filter: isHovered ? 'brightness(0.8)' : 'brightness(1)'
@@ -252,6 +254,7 @@ export default function PortfolioGrid() {
   const [filter, setFilter] = useState('All')
   const categories = ['All', ...Array.from(new Set(portfolioProjects.map(p => p.category)))]
   
+  // Always show all projects on mobile, use filter on desktop
   const filteredProjects = filter === 'All' 
     ? portfolioProjects 
     : portfolioProjects.filter(p => p.category === filter)
@@ -279,9 +282,9 @@ export default function PortfolioGrid() {
         </div>
       </motion.div>
 
-      {/* Filter buttons */}
+      {/* Filter buttons - only show on desktop */}
       <motion.div
-        className="flex flex-wrap justify-center gap-2 mb-8"
+        className="hidden md:flex flex-wrap justify-center gap-2 mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}

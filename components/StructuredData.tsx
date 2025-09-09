@@ -16,7 +16,7 @@ export default function StructuredData({ type = 'organization', data }: Structur
           alternateName: 'Forge Sites',
           description: 'Modern web development services specializing in small business websites with cutting-edge technology and creative vision.',
           url: baseUrl,
-          logo: `${baseUrl}/logo.png`,
+          logo: `${baseUrl}/logo.webp`,
           image: `${baseUrl}/og-image.png`,
           founder: {
             '@type': 'Person',
@@ -84,7 +84,7 @@ export default function StructuredData({ type = 'organization', data }: Structur
           publisher: {
             '@type': 'Organization',
             name: 'ForgeSites',
-            logo: `${baseUrl}/logo.png`,
+            logo: `${baseUrl}/logo.webp`,
           },
           mainEntity: {
             '@type': 'Organization',

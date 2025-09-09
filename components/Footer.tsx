@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '@/public/logo.png'
+import logo from '@/public/logo.webp'
 
 export default function Footer() {
   return (
@@ -35,18 +35,7 @@ export default function Footer() {
             </a>
             <nav className="flex items-center gap-3">
               <a
-                href="#"
-                target="_blank"
-                rel="noopener"
-                aria-label="GitHub"
-                className="rounded-md p-1 text-steel hover:text-molten focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold transition duration-200 motion-reduce:transition-none"
-              >
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2a10 10 0 0 0-3.162 19.49c.5.092.683-.216.683-.48 0-.237-.009-.866-.013-1.7-2.78.604-3.366-1.34-3.366-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.833.09-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.683-.103-.253-.447-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.58 9.58 0 0 1 12 6.844a9.54 9.54 0 0 1 2.503.337c1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.029 1.592 1.029 2.683 0 3.842-2.338 4.687-4.565 4.936.359.309.679.918.679 1.852 0 1.337-.012 2.416-.012 2.744 0 .266.181.576.688.478A10 10 0 0 0 12 2z" />
-                </svg>
-              </a>
-              <a
-                href="#"
+                href="https://www.instagram.com/forge.sites/"
                 target="_blank"
                 rel="noopener"
                 aria-label="Instagram"
@@ -57,7 +46,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/braden-baney/"
                 target="_blank"
                 rel="noopener"
                 aria-label="LinkedIn"

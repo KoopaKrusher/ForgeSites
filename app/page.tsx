@@ -4,6 +4,7 @@ import AnimatedHero from '@/components/AnimatedHero'
 import ServicesSection from '@/components/ServicesSection'
 import Process from '@/components/Process'
 import CTABand from '@/components/CTABand'
+import LightweightGeometricBackground from '@/components/LightweightGeometricBackground'
 
 export const metadata: Metadata = {
   title: 'ForgeSites — Websites Forged for Small Businesses',
@@ -17,10 +18,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div>
+      <LightweightGeometricBackground />
       <AnimatedHero />
-
       <ServicesSection />
-
       <Process />
       <CTABand />
     </div>

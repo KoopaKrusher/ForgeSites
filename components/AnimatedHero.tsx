@@ -9,17 +9,24 @@ import { useEffect, useState } from 'react'
 const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
   const [displayText, setDisplayText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [started, setStarted] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (currentIndex < text.length) {
+    if (!started) {
+      const startTimer = setTimeout(() => {
+        setStarted(true)
+      }, delay)
+      return () => clearTimeout(startTimer)
+    }
+
+    if (started && currentIndex < text.length) {
+      const timer = setTimeout(() => {
         setDisplayText(prev => prev + text[currentIndex])
         setCurrentIndex(prev => prev + 1)
-      }
-    }, delay + currentIndex * 100)
-
-    return () => clearTimeout(timer)
-  }, [currentIndex, text, delay])
+      }, 60)
+      return () => clearTimeout(timer)
+    }
+  }, [currentIndex, text, delay, started])
 
   return (
     <span>
@@ -110,14 +117,14 @@ export default function AnimatedHero() {
               animate={{ y: inView ? 0 : 50, opacity: inView ? 1 : 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <TypewriterText text="Websites Forged for You" delay={500} />
+              <TypewriterText text="Websites Forged for You" delay={100} />
             </motion.h1>
             
             <motion.p 
               className="text-lg md:text-xl text-steel/80 max-w-prose mb-8"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: inView ? 0 : 30, opacity: inView ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 1.5 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
               Affordable, modern sites built for small businesses with cutting-edge technology and creative vision.
             </motion.p>
@@ -126,9 +133,9 @@ export default function AnimatedHero() {
               className="flex flex-wrap items-center gap-4"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: inView ? 0 : 20, opacity: inView ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 2 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
             >
-              <FloatingElement delay={2.2}>
+              <FloatingElement delay={1.4}>
                 <Link
                   href="/request"
                   className="group relative inline-block rounded-md bg-molten text-white px-6 py-3 font-semibold transition-all duration-300 hover:bg-steel hover:text-bone focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold overflow-hidden"
@@ -147,7 +154,7 @@ export default function AnimatedHero() {
                 </Link>
               </FloatingElement>
               
-              <FloatingElement delay={2.4}>
+              <FloatingElement delay={1.6}>
                 <Link
                   href="/packages"
                   className="group inline-flex items-center rounded-xl border border-steel/40 text-steel px-6 py-3 font-semibold transition-all duration-300 hover:bg-steel/10 hover:border-steel/60 active:bg-steel/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -174,7 +181,7 @@ export default function AnimatedHero() {
               opacity: inView ? 1 : 0, 
               scale: inView ? 1 : 0.9 
             }}
-            transition={{ duration: 1, delay: 3.5, ease: 'easeOut' }}
+            transition={{ duration: 1, delay: 2, ease: 'easeOut' }}
           >
             <PortfolioGrid />
           </motion.div>

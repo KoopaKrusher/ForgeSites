@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import ThreeJSBackground from '@/components/ThreeJSBackground'
+import LightweightGeometricBackground from '@/components/LightweightGeometricBackground'
 import StructuredData from '@/components/StructuredData'
 import PerformanceOptimizer from '@/components/PerformanceOptimizer'
 
@@ -72,9 +72,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StructuredData type="organization" />
         <StructuredData type="website" />
         <StructuredData type="person" />
+        
+        {/* Preload critical images */}
+        <link rel="preload" as="image" href="/logo.webp" />
+        <link rel="preload" as="image" href="/e-com-example.webp" />
+        
+        {/* DNS prefetch for external images */}
+        <link rel="dns-prefetch" href="//images.unsplash.com" />
       </head>
       <body className="min-h-screen antialiased bg-soft-grid bg-fixed flex flex-col">
-        <ThreeJSBackground />
+        <LightweightGeometricBackground />
         <Navbar />
         <main className="container mx-auto px-4 py-10 with-spotlight flex-1 w-full relative z-10">{children}</main>
         <Footer />
