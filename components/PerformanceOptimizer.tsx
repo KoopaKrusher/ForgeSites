@@ -1,8 +1,28 @@
 'use client'
 
 import Script from 'next/script'
+import { useEffect, useState } from 'react'
 
 export default function PerformanceOptimizer() {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if (!isMounted) {
+    return (
+      <>
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* DNS prefetch for likely user actions */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+      </>
+    )
+  }
   return (
     <>
       {/* Preconnect to external domains for faster loading */}

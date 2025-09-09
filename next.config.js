@@ -4,7 +4,7 @@ const nextConfig = {
   
   // Enable experimental features for better performance
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true, // Disabled due to missing critters dependency
   },
   
   images: {

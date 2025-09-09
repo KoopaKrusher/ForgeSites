@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 
 interface Shape {
   id: number
@@ -171,17 +172,19 @@ const ShapeComponent = ({ shape }: { shape: Shape }) => {
   )
 }
 
-export default function LightweightGeometricBackground() {
+function LightweightGeometricBackgroundClient() {
   const [shapes, setShapes] = useState<Shape[]>([])
   const [isVisible, setIsVisible] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
     // Generate shapes immediately
     setShapes(generateShapes())
     setTimeout(() => setIsVisible(true), 300)
   }, [])
 
-  if (!isVisible || shapes.length === 0) {
+  if (!isMounted || !isVisible || shapes.length === 0) {
     return null
   }
 
@@ -193,3 +196,8 @@ export default function LightweightGeometricBackground() {
     </div>
   )
 }
+
+// Export as dynamic import to prevent SSR issues
+export default dynamic(() => Promise.resolve(LightweightGeometricBackgroundClient), {
+  ssr: false
+})
